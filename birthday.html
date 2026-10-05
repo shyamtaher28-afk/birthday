@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise 💕</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+
+    background: #111;
+
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+
+    color: #554548;
+}
+
+
+/* =========================================================
+   MAIN PHONE
+========================================================= */
+
+.phone {
+
+    width: min(100vw, 430px);
+
+    height: 100vh;
+
+    margin: auto;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdfb,
+            #fff3ee
+        );
+
+    box-shadow:
+        0 0 60px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   SCREENS
+========================================================= */
+
+.screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding:
+        25px
+        22px
+        30px;
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow-y: auto;
+
+    animation:
+        screenIn .5s ease;
+}
+
+.screen.active {
+
+    display: flex;
+
+}
+
+
+@keyframes screenIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    min-height: 35px;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+
+    border: none;
+
+    background: rgba(232,155,159,.12);
+
+    color: #c77f84;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .25s;
+
+    flex-shrink: 0;
+
+}
+
+
+.back-btn:hover {
+
+    background: #e89b9f;
+
+    color: white;
+
+    transform: translateX(-3px);
+
+}
+
+
+.back-btn:active {
+
+    transform: scale(.9);
+
+}
+
+
+/* Empty space on screens */
+
+.topbar-space {
+
+    width: 38px;
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.topline {
+
+    text-align: center;
+
+    margin:
+        8px
+        0
+        28px;
+
+    color: #c99d9b;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+h1,
+h2 {
+
+    font-family: Georgia, serif;
+
+    font-weight: 500;
+
+}
+
+
+.hero-title {
+
+    font-size: 32px;
+
+    line-height: 1.15;
+
+    text-align: center;
+
+}
+
+
+.script {
+
+    margin-top: 8px;
+
+    color: #c77f84;
+
+    font-family: Georgia, serif;
+
+    font-style: italic;
+
+    font-size: 20px;
+
+}
+
+
+.small {
+
+    color: #9d898b;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.center {
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+
+    border: none;
+
+    padding:
+        14px
+        28px;
+
+    border-radius: 50px;
+
+    background: #e89b9f;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(232,155,159,.35);
+
+    transition: .25s;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.btn:active {
+
+    transform:
+        scale(.95);
+
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-wrap {
+
+    width: 240px;
+
+    height: 155px;
+
+    position: relative;
+
+    margin: 35px auto;
+
+    cursor: pointer;
+
+}
+
+
+.envelope {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #f1d9d1;
+
+    border:
+        1px solid
+        #d7b7af;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 20px 35px
+        rgba(100,70,65,.2);
+
+}
+
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    border-left:
+        120px solid transparent;
+
+    border-right:
+        120px solid transparent;
+
+    border-top:
+        78px solid #e6c6bc;
+
+    transform-origin: top;
+
+    transition: 1s;
+
+    z-index: 4;
+
+}
+
+
+.envelope::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    border-left:
+        120px solid #edd4cc;
+
+    border-right:
+        120px solid #edd4cc;
+
+    border-top:
+        75px solid transparent;
+
+}
+
+
+.seal {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #dc9295;
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 18px;
+
+    z-index: 10;
+
+    transition: .5s;
+
+}
+
+
+.envelope-wrap.open
+.envelope::before {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+.envelope-wrap.open
+.seal {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -70px)
+        scale(.5);
+
+}
+
+
+/* =========================================================
+   CAKE
+========================================================= */
+
+.cake {
+
+    font-size: 75px;
+
+    margin: 20px 0;
+
+    animation:
+        cakeFloat 2s
+        infinite
+        ease-in-out;
+}
+
+
+@keyframes cakeFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+/* =========================================================
+   ALBUM
+========================================================= */
+
+.album {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+}
+
+
+/* Individual memory card */
+
+.memory-card {
+
+    background: white;
+
+    border:
+        1px solid
+        #ead8d4;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(100,70,65,.10);
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-5px)
+        rotate(-1deg);
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.memory-image {
+
+    width: 100%;
+
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 7px;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.memory-video {
+
+    width: 100%;
+
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 7px;
+
+    display: block;
+
+    background: #eee;
+
+}
+
+
+/* =========================================================
+   MEMORY TITLE
+========================================================= */
+
+.memory-title {
+
+    text-align: center;
+
+    margin-top: 9px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+}
+
+
+.memory-type {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 4px;
+
+    color: #aa9294;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   FULLSCREEN MEDIA VIEWER
+========================================================= */
+
+.media-viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.94);
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 20px;
+
+}
+
+
+.media-viewer.active {
+
+    display: flex;
+
+}
+
+
+.viewer-content {
+
+    max-width: 95vw;
+
+    max-height: 75vh;
+
+}
+
+
+.viewer-content img,
+.viewer-content video {
+
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+/* CLOSE BUTTON */
+
+.close-viewer {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 44px;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #555;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+}
+
+
+.close-viewer:hover {
+
+    background: #e89b9f;
+
+    color: white;
+
+}
+
+
+.viewer-title {
+
+    color: white;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   FLOWERS
+========================================================= */
+
+.bouquet {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 25px 0;
+
+}
+
+
+.flower {
+
+    background: white;
+
+    border:
+        1px solid
+        #ead8d4;
+
+    border-radius: 10px;
+
+    padding: 9px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.flower:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.flower.selected {
+
+    border:
+        2px solid
+        #e89b9f;
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+}
+
+
+.flower-icon {
+
+    background: #fbefeb;
+
+    border-radius: 7px;
+
+    padding:
+        15px
+        5px;
+
+    font-size: 45px;
+
+}
+
+
+.flower-name {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #927c80;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   WISH CARD
+========================================================= */
+
+.wish-card {
+
+    display: none;
+
+    background: white;
+
+    border:
+        1px solid
+        #ead8d4;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 30px
+        rgba(100,70,65,.12);
+
+    animation:
+        pop .5s ease;
+
+}
+
+
+@keyframes pop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+.wish-flower {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.wish-card p {
+
+    color: #806d70;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+
+    position: relative;
+
+    min-height: 410px;
+
+    margin-top: 15px;
+
+    padding:
+        30px
+        24px;
+
+    background: #fff;
+
+    border:
+        1px solid
+        #ead8d4;
+
+    box-shadow:
+        0 15px 35px
+        rgba(100,70,65,.13);
+
+}
+
+
+.letter::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border:
+        1px dashed
+        #efd9d5;
+
+}
+
+
+.letter-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.letter-content h1 {
+
+    font-size: 27px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.signature {
+
+    margin-top: 20px;
+
+    text-align: right;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    color: #b9a0a0;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    color: #e99b9e;
+
+    pointer-events: none;
+
+    animation:
+        heartUp 5s linear forwards;
+
+}
+
+
+@keyframes heartUp {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            scale(.5);
+
+    }
+
+    15% {
+
+        opacity: .8;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-700px)
+            scale(1.2)
+            rotate(30deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 12px;
+
+    top: -20px;
+
+    animation:
+        confettiFall 3s linear forwards;
+
+}
+
+
+@keyframes confettiFall {
+
+    to {
+
+        transform:
+            translateY(900px)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:430px) {
+
+    body {
+
+        background: #fff;
+
+    }
+
+    .phone {
+
+        width: 100vw;
+
+        height: 100vh;
+
+        box-shadow: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div
+    class="phone"
+    id="phone"
+>
+
+
+<!-- =====================================================
+     SCREEN 1 — ENVELOPE
+===================================================== -->
+
+<section
+    class="screen active center"
+    id="screen0"
+>
+
+
+    <div class="topline">
+
+        A LITTLE SURPRISE FOR YOU
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+        Someone made<br>
+
+        something special
+
+    </h1>
+
+
+    <p
+        class="small"
+        style="margin-top:12px"
+    >
+
+        Tap the envelope to begin
+
+    </p>
+
+
+    <div
+        class="envelope-wrap"
+        id="envelope"
+        onclick="openEnvelope()"
+    >
+
+        <div class="envelope">
+
+            <div class="seal">
+                ♥
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="openEnvelope()"
+    >
+
+        Open the letter
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 2 — BIRTHDAY
+===================================================== -->
+
+<section
+    class="screen center"
+    id="screen1"
+>
+
+
+    <div class="topbar">
+
+        <!-- Back button -->
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            aria-label="Back"
+        >
+            ←
+        </button>
+
+
+        <div class="topbar-space"></div>
+
+    </div>
+
+
+    <div class="topline">
+
+        ♥ BIRTHDAY WISHES ♥
+
+    </div>
+
+
+    <div class="cake">
+
+        🎂
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+        Happy Birthday
+
+    </h1>
+
+
+    <div class="script">
+
+        My Madam Ji ♡
+
+    </div>
+
+
+    <p
+        class="small"
+        style="
+        max-width:300px;
+        margin:22px auto;
+        "
+    >
+
+        Today is yours.
+
+        A whole little world
+        of wishes, memories
+        and love has been made
+        just for you.
+
+    </p>
+
+
+    <button
+        class="btn"
+        onclick="goTo(2)"
+    >
+
+        See your memories
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 3 — ALBUM
+===================================================== -->
+
+<section
+    class="screen"
+    id="screen2"
+>
+
+
+    <div class="topbar">
+
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            aria-label="Back"
+        >
+
+            ←
+
+        </button>
+
+
+        <div
+            style="
+            flex:1;
+            text-align:center;
+            font-family:Georgia,serif;
+            color:#c77f84;
+            font-size:13px;
+            "
+        >
+
+            MEMORIES
+
+        </div>
+
+
+        <div class="topbar-space"></div>
+
+
+    </div>
+
+
+    <div class="topline">
+
+        OUR LITTLE MEMORIES
+
+    </div>
+
+
+    <h1
+        style="
+        text-align:center;
+        font-size:27px;
+        "
+    >
+
+        Memories ♡
+
+    </h1>
+
+
+    <p
+        class="small"
+        style="
+        text-align:center;
+        margin-top:8px;
+        "
+    >
+
+        Photos & videos made just for you
+
+    </p>
+
+
+    <!--
+        ALL PHOTOS AND VIDEOS
+        WILL BE CREATED HERE
+    -->
+
+    <div
+        class="album"
+        id="album"
+    ></div>
+
+
+    <button
+        class="btn"
+        style="
+        margin:25px auto 0;
+        "
+        onclick="goTo(3)"
+    >
+
+        Continue ♡
+
+    </button>
+
+
+    <div class="footer">
+
+        tap any memory to view it
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 4 — FLOWERS
+===================================================== -->
+
+<section
+    class="screen"
+    id="screen3"
+>
+
+
+    <div class="topbar">
+
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            aria-label="Back"
+        >
+
+            ←
+
+        </button>
+
+
+        <div class="topbar-space"></div>
+
+
+    </div>
+
+
+    <div class="topline">
+
+        A TINY BOUQUET OF WISHES
+
+    </div>
+
+
+    <h1
+        style="
+        text-align:center;
+        font-size:27px;
+        "
+    >
+
+        Pick one flower
+
+    </h1>
+
+
+    <p
+        class="small"
+        style="
+        text-align:center;
+        margin-top:8px;
+        "
+    >
+
+        Each one hides a little wish
+
+    </p>
+
+
+    <div class="bouquet">
+
+
+        <div
+            class="flower"
+            onclick="pickFlower(this,'🌸')"
+        >
+
+            <div class="flower-icon">
+                🌸
+            </div>
+
+            <span class="flower-name">
+                PICK ME
+            </span>
+
+        </div>
+
+
+        <div
+            class="flower"
+            onclick="pickFlower(this,'🌼')"
+        >
+
+            <div class="flower-icon">
+                🌼
+            </div>
+
+            <span class="flower-name">
+                PICK ME
+            </span>
+
+        </div>
+
+
+        <div
+            class="flower"
+            onclick="pickFlower(this,'🌷')"
+        >
+
+            <div class="flower-icon">
+                🌷
+            </div>
+
+            <span class="flower-name">
+                PICK ME
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        class="wish-card"
+        id="wishCard"
+    >
+
+
+        <div
+            class="wish-flower"
+            id="selectedFlower"
+        >
+
+            🌸
+
+        </div>
+
+
+        <p>
+
+            May this year bring you
+            tiny reasons to smile,
+            big reasons to dream,
+            beautiful memories,
+            and people who make
+            ordinary days feel special.
+
+        </p>
+
+
+    </div>
+
+
+    <button
+        class="btn"
+        id="letterButton"
+        style="
+        display:none;
+        margin:25px auto 0;
+        "
+        onclick="goTo(4)"
+    >
+
+        Read the final letter
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 5 — FINAL LETTER
+===================================================== -->
+
+<section
+    class="screen"
+    id="screen4"
+>
+
+
+    <div class="topbar">
+
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            aria-label="Back"
+        >
+
+            ←
+
+        </button>
+
+
+        <div class="topbar-space"></div>
+
+
+    </div>
+
+
+    <div class="topline">
+
+        ONE LAST THING
+
+    </div>
+
+
+    <div class="letter">
+
+
+        <div class="letter-content">
+
+
+            <h1>
+
+                My Madam Ji,
+
+            </h1>
+
+
+            <p>
+
+                Some people make life brighter
+                without even trying.
+                You are one of those people.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                I hope today reminds you
+                how loved, appreciated and
+                wonderfully you are.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                Keep smiling.
+                Keep dreaming.
+                Keep being exactly yourself.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                Thank you for being a beautiful
+                part of my world.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                Here's to another year full
+                of laughter, adventures,
+                happiness and memories
+                worth keeping.
+
+            </p>
+
+
+            <div class="signature">
+
+                With lots of love,<br>
+
+                <b>
+
+                    Someone who cares ♡
+
+                </b>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="btn"
+        style="
+        margin:20px auto 0;
+        "
+        onclick="restart()"
+    >
+
+        Replay from beginning
+
+    </button>
+
+
+    <div class="footer">
+
+        made with HTML • CSS • JavaScript
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FULLSCREEN MEDIA VIEWER
+===================================================== -->
+
+<div
+    class="media-viewer"
+    id="mediaViewer"
+>
+
+
+    <button
+        class="close-viewer"
+        onclick="closeViewer()"
+    >
+
+        ×
+
+    </button>
+
+
+    <div
+        class="viewer-content"
+        id="viewerContent"
+    ></div>
+
+
+    <div
+        class="viewer-title"
+        id="viewerTitle"
+    ></div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   ⭐⭐⭐ ADD YOUR PHOTOS AND VIDEOS HERE ⭐⭐⭐
+
+   You can add as many as you want.
+
+   type = "image"  → photo
+   type = "video"  → video
+
+========================================================= */
+
+
+const memories = [
+
+
+    {
+        type: "image",
+        src: "images/photo1.jpg",
+        title: "Our First Memory"
+    },
+
+
+    {
+        type: "image",
+        src: "images/photo2.jpg",
+        title: "Beautiful Moment"
+    },
+
+
+    {
+        type: "image",
+        src: "images/photo3.jpg",
+        title: "One More Smile"
+    },
+
+
+    {
+        type: "video",
+        src: "videos/video1.mp4",
+        title: "A Special Video"
+    },
+
+
+    {
+        type: "image",
+        src: "images/photo4.jpg",
+        title: "Another Beautiful Memory"
+    },
+
+
+    {
+        type: "video",
+        src: "videos/video2.mp4",
+        title: "Our Little Video"
+    },
+
+
+    /* =====================================================
+       ADD MORE BELOW
+    ===================================================== */
+
+
+    {
+        type: "image",
+        src: "images/photo5.jpg",
+        title: "Memory Five"
+    },
+
+
+    {
+        type: "image",
+        src: "images/photo6.jpg",
+        title: "Memory Six"
+    },
+
+
+    {
+        type: "video",
+        src: "videos/video3.mp4",
+        title: "Special Video Three"
+    }
+
+
+];
+
+
+
+/* =========================================================
+   CREATE ALBUM
+========================================================= */
+
+function createAlbum() {
+
+
+    const album =
+        document.getElementById(
+            "album"
+        );
+
+
+    album.innerHTML = "";
+
+
+    memories.forEach(
+        function(memory,index) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "memory-card";
+
+
+            /* ===============================
+               IMAGE
+            =============================== */
+
+            if(
+                memory.type === "image"
+            ) {
+
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    memory.src;
+
+
+                image.alt =
+                    memory.title;
+
+
+                image.className =
+                    "memory-image";
+
+
+                card.appendChild(
+                    image
+                );
+
+            }
+
+
+            /* ===============================
+               VIDEO
+            =============================== */
+
+            else if(
+                memory.type === "video"
+            ) {
+
+
+                const video =
+                    document.createElement(
+                        "video"
+                    );
+
+
+                video.src =
+                    memory.src;
+
+
+                video.className =
+                    "memory-video";
+
+
+                video.muted =
+                    true;
+
+
+                video.loop =
+                    true;
+
+
+                video.playsInline =
+                    true;
+
+
+                /*
+                   Video preview.
+                   The actual video opens
+                   fullscreen when clicked.
+                */
+
+                card.appendChild(
+                    video
+                );
+
+            }
+
+
+            /* ===============================
+               TITLE
+            =============================== */
+
+            const title =
+                document.createElement(
+                    "div"
+                );
+
+
+            title.className =
+                "memory-title";
+
+
+            title.textContent =
+                memory.title;
+
+
+            card.appendChild(
+                title
+            );
+
+
+            /* ===============================
+               TYPE LABEL
+            =============================== */
+
+            const type =
+                document.createElement(
+                    "span"
+                );
+
+
+            type.className =
+                "memory-type";
+
+
+            type.textContent =
+                memory.type === "image"
+
+                ? "PHOTO • TAP TO VIEW"
+
+                : "VIDEO • TAP TO PLAY";
+
+
+            card.appendChild(
+                type
+            );
+
+
+            /* ===============================
+               OPEN MEDIA
+            =============================== */
+
+            card.addEventListener(
+                "click",
+                function() {
+
+                    openMedia(
+                        memory,
+                        index
+                    );
+
+                }
+            );
+
+
+            album.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   OPEN IMAGE / VIDEO
+========================================================= */
+
+function openMedia(
+    memory,
+    index
+) {
+
+
+    const viewer =
+        document.getElementById(
+            "mediaViewer"
+        );
+
+
+    const content =
+        document.getElementById(
+            "viewerContent"
+        );
+
+
+    const title =
+        document.getElementById(
+            "viewerTitle"
+        );
+
+
+    content.innerHTML = "";
+
+
+    /* ===============================
+       IMAGE
+    =============================== */
+
+    if(
+        memory.type === "image"
+    ) {
+
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+
+        image.src =
+            memory.src;
+
+
+        image.alt =
+            memory.title;
+
+
+        content.appendChild(
+            image
+        );
+
+    }
+
+
+    /* ===============================
+       VIDEO
+    =============================== */
+
+    else {
+
+
+        const video =
+            document.createElement(
+                "video"
+            );
+
+
+        video.src =
+            memory.src;
+
+
+        video.controls =
+            true;
+
+
+        video.autoplay =
+            true;
+
+
+        video.playsInline =
+            true;
+
+
+        content.appendChild(
+            video
+        );
+
+    }
+
+
+    title.textContent =
+        memory.title;
+
+
+    viewer.classList.add(
+        "active"
+    );
+
+}
+
+
+
+/* =========================================================
+   CLOSE MEDIA VIEWER
+========================================================= */
+
+function closeViewer() {
+
+
+    const viewer =
+        document.getElementById(
+            "mediaViewer"
+        );
+
+
+    const content =
+        document.getElementById(
+            "viewerContent"
+        );
+
+
+    viewer.classList.remove(
+        "active"
+    );
+
+
+    /*
+       Remove the video completely
+       so audio stops immediately.
+    */
+
+    content.innerHTML = "";
+
+}
+
+
+
+/* =========================================================
+   SCREEN NAVIGATION
+========================================================= */
+
+const screens =
+    document.querySelectorAll(
+        ".screen"
+    );
+
+
+let currentScreen = 0;
+
+
+
+/* GO TO SPECIFIC SCREEN */
+
+function goTo(number) {
+
+
+    if(
+        number < 0 ||
+        number >= screens.length
+    ) {
+
+        return;
+
+    }
+
+
+    screens[currentScreen]
+        .classList
+        .remove("active");
+
+
+    currentScreen =
+        number;
+
+
+    screens[currentScreen]
+        .classList
+        .add("active");
+
+
+    /*
+       Scroll to top.
+    */
+
+    screens[currentScreen]
+        .scrollTop = 0;
+
+
+    createHearts();
+
+}
+
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+function goBack() {
+
+
+    /*
+       Don't go before the first screen.
+    */
+
+    if(
+        currentScreen <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    goTo(
+        currentScreen - 1
+    );
+
+}
+
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+function openEnvelope() {
+
+
+    const envelope =
+        document.getElementById(
+            "envelope"
+        );
+
+
+    envelope.classList.add(
+        "open"
+    );
+
+
+    createConfetti();
+
+
+    setTimeout(
+        function() {
+
+            goTo(1);
+
+        },
+        1000
+    );
+
+}
+
+
+
+/* =========================================================
+   FLOWER
+========================================================= */
+
+function pickFlower(
+    element,
+    flower
+) {
+
+
+    document
+        .querySelectorAll(
+            ".flower"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList
+                    .remove(
+                        "selected"
+                    );
+
+            }
+        );
+
+
+    element.classList.add(
+        "selected"
+    );
+
+
+    document.getElementById(
+        "selectedFlower"
+    ).textContent =
+        flower;
+
+
+    document.getElementById(
+        "wishCard"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "letterButton"
+    ).style.display =
+        "block";
+
+
+    createHearts();
+
+}
+
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHearts() {
+
+
+    const phone =
+        document.getElementById(
+            "phone"
+        );
+
+
+    for(
+        let i = 0;
+        i < 8;
+        i++
+    ) {
+
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "heart";
+
+
+        heart.textContent =
+            Math.random() > .5
+            ? "♥"
+            : "♡";
+
+
+        heart.style.left =
+            Math.random() * 90
+            + "%";
+
+
+        heart.style.animationDelay =
+            Math.random() * 2
+            + "s";
+
+
+        heart.style.fontSize =
+            (
+                12 +
+                Math.random() * 15
+            )
+            + "px";
+
+
+        phone.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            function() {
+
+                heart.remove();
+
+            },
+            6000
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti() {
+
+
+    const phone =
+        document.getElementById(
+            "phone"
+        );
+
+
+    for(
+        let i = 0;
+        i < 45;
+        i++
+    ) {
+
+
+        const piece =
+            document.createElement(
+                "div"
+            );
+
+
+        piece.className =
+            "confetti";
+
+
+        piece.style.left =
+            Math.random() * 100
+            + "%";
+
+
+        piece.style.background =
+            [
+                "#e89b9f",
+                "#f3c5bd",
+                "#dca9aa",
+                "#f4dfd5",
+                "#e9b8b5"
+            ][
+                Math.floor(
+                    Math.random() * 5
+                )
+            ];
+
+
+        piece.style.transform =
+            `rotate(
+                ${Math.random()*360}deg
+            )`;
+
+
+        piece.style.animationDelay =
+            Math.random() * 1.5
+            + "s";
+
+
+        phone.appendChild(
+            piece
+        );
+
+
+        setTimeout(
+            function() {
+
+                piece.remove();
+
+            },
+            4000
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   RESTART WEBSITE
+========================================================= */
+
+function restart() {
+
+
+    document
+        .getElementById(
+            "envelope"
+        )
+        .classList
+        .remove("open");
+
+
+    document
+        .getElementById(
+            "wishCard"
+        )
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById(
+            "letterButton"
+        )
+        .style.display =
+        "none";
+
+
+    document
+        .querySelectorAll(
+            ".flower"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList
+                    .remove(
+                        "selected"
+                    );
+
+            }
+        );
+
+
+    goTo(0);
+
+}
+
+
+
+/* =========================================================
+   CLOSE VIEWER BY CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById(
+        "mediaViewer"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+
+            if(
+                event.target === this
+            ) {
+
+                closeViewer();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if(
+            event.key === "Escape"
+        ) {
+
+            closeViewer();
+
+        }
+
+
+        /*
+           Keyboard back button.
+        */
+
+        if(
+            event.key === "Backspace"
+        ) {
+
+            /*
+               Don't interfere with
+               typing in inputs.
+            */
+
+            if(
+                event.target.tagName !==
+                "INPUT" &&
+                event.target.tagName !==
+                "TEXTAREA"
+            ) {
+
+                goBack();
+
+            }
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+createAlbum();
+
+</script>
+
+
+</body>
+
+</html>
